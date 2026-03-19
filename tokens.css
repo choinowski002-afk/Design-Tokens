@@ -1,1 +1,58 @@
+:root {
+
+    /* Colors */
+  --color-primary:             #FF2D55;
+  --color-background-primary:  #1F1F2A;
+  --color-background-secondary:#191923;
+  --color-text-primary:        #FFFFFF;
+  --color-background-results:  #000000;
+  --color-progress-bar:        #F6F4AF;
+  
+  /* Spacing */
+  --spacing-1:  4px;
+  --spacing-2:  8px;
+  --spacing-3:  12px;
+  --spacing-4:  16px;
+  --spacing-5:  20px;
+  --spacing-6:  24px;
+  --spacing-8:  32px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-20: 80px;
+  --spacing-24: 96px;
+ 
+  /* Padding */
+  --button-padding-sm: var(--spacing-2);  /*  8px */
+  --button-padding-md: var(--spacing-4);  /* 16px */
+  --button-padding-lg: var(--spacing-6);  /* 24px */
+ 
+  /* Margin */
+  --margin-sm: var(--spacing-2);  /*  8px */
+  --margin-md: var(--spacing-4);  /* 16px */
+  --margin-lg: var(--spacing-8);  /* 32px */
+  --margin-xl: var(--spacing-12); /* 48px */
+ 
+  /* Typography */
+  --font-family-heading: 'Integral CF', sans-serif;
+  --font-family-body:    'Open Sans', sans-serif;
+ 
+  /* Font Sizes */
+  --font-size-sm:   12px;
+  --font-size-base: 16px;
+  --font-size-lg:   20px;
+  --font-size-xl:   24px;
+  --font-size-2xl:  32px;
+ 
+  /* Font Weights */
+  --font-weight-reg:  400;
+  --font-weight-md:   500;
+  --font-weight-bold: 700;
+ 
+  /* Line Heights */
+  --line-height-tight: 1.2;
+  --line-height-base:  1.5;
+  --line-height-loose: 1.8;
+ 
+}
 
