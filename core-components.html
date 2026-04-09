@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Core Components</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="tokens.css">
+
+    :root {
+      /* Colors */
+      --color-primary:              #FF2D55;
+      --color-background-primary:   #1F1F2A;
+      --color-background-secondary: #191923;
+      --color-text-primary:         #FFFFFF;
+      --color-progress-bar:         #F6F4AF;
+ 
+      /* Extra tokens for components */
+      --color-secondary:     #5B4FD9;
+      --color-accent:        #F6F4AF;
+      --color-accent-text:   #1F1F2A;
+      --color-card-bg:       #2A2A38;
+      --color-card-border:   #3A3A4D;
+      --color-text-muted:    #9999AA;
+      --color-disabled-bg:   #3A3A4A;
+      --color-disabled-text: #666677;
+ 
+      /* Spacing */
+      --spacing-2:  8px;
+      --spacing-4:  16px;
+      --spacing-6:  24px;
+      --spacing-8:  32px;
+ 
+      /* Padding */
+      --button-padding-sm: var(--spacing-2);
+      --button-padding-md: var(--spacing-4);
+ 
+      /* Typography */
+      --font-family-heading: 'Barlow Condensed', sans-serif;
+      --font-family-body:    'Open Sans', sans-serif;
+      --font-size-sm:   12px;
+      --font-size-base: 16px;
+      --font-size-lg:   20px;
+      --font-size-xl:   24px;
+      --font-size-2xl:  32px;
+      --font-weight-reg:  400;
+      --font-weight-bold: 700;
+      --line-height-base: 1.5;
+    }
+ 
+    /* =============================================
+       BASE
+    ============================================= */
+    body {
+      background-color: var(--color-background-primary);
+      font-family: var(--font-family-body);
+      font-size: var(--font-size-base);
+      color: var(--color-text-primary);
+      line-height: var(--line-height-base);
+      padding: var(--spacing-8);
+    }
+ 
+    h1 {
+      font-family: var(--font-family-heading);
+      font-size: var(--font-size-2xl);
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+      color: var(--color-primary);
+      margin-bottom: var(--spacing-8);
+    }
+ 
+    h2 {
+      font-family: var(--font-family-heading);
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+      border-bottom: 2px solid var(--color-card-border);
+      padding-bottom: var(--spacing-2);
+      margin-bottom: var(--spacing-4);
+    }
+ 
+    h3 {
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: var(--spacing-2);
+    }
+ 
+    .section { margin-bottom: 60px; }
+ 
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-4);
+      align-items: center;
+      margin-bottom: var(--spacing-4);
+    }
+ 
+ 
+    /* =============================================
+       BUTTONS
+       4 types: primary, secondary, accent, icon
+       4 states: default, hover, pressed, disabled
+    ============================================= */
+ 
+    /* Base — shared by all button types */
+    .btn {
+      font-family: var(--font-family-heading);
+      font-size: var(--font-size-base);
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: var(--button-padding-md) var(--spacing-8);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 150ms ease;
+    }
+ 
+    /* Primary — uses --color-primary */
+    .btn-primary            { background-color: var(--color-primary); color: var(--color-text-primary); }
+    .btn-primary:hover      { background-color: #e0183e; }
+    .btn-primary.pressed    { background-color: #c01030; }
+    .btn-primary:disabled   { background-color: var(--color-disabled-bg); color: var(--color-disabled-text); cursor: not-allowed; }
+ 
+    /* Secondary — uses --color-secondary */
+    .btn-secondary          { background-color: var(--color-secondary); color: var(--color-text-primary); }
+    .btn-secondary:hover    { background-color: #4a3ec8; }
+    .btn-secondary.pressed  { background-color: #3a2fb0; }
+    .btn-secondary:disabled { background-color: var(--color-disabled-bg); color: var(--color-disabled-text); cursor: not-allowed; }
+ 
+    /* Accent — uses --color-accent (yellow) with dark text */
+    .btn-accent             { background-color: var(--color-accent); color: var(--color-accent-text); }
+    .btn-accent:hover       { background-color: #ede9a0; }
+    .btn-accent.pressed     { background-color: #d8d488; }
+    .btn-accent:disabled    { background-color: var(--color-disabled-bg); color: var(--color-disabled-text); cursor: not-allowed; }
+ 
+    /* Icon button — same red as primary, slightly less padding */
+    .btn-icon               { background-color: var(--color-primary); color: var(--color-text-primary); padding: var(--button-padding-md) var(--spacing-6); }
+    .btn-icon:hover         { background-color: #e0183e; }
+    .btn-icon.pressed       { background-color: #c01030; }
+    .btn-icon:disabled      { background-color: var(--color-disabled-bg); color: var(--color-disabled-text); cursor: not-allowed; }
+ 
+ 
+    /* =============================================
+       CARD
+    ============================================= */
+    .card {
+      background-color: var(--color-card-bg);
+      border: 1px solid var(--color-card-border);
+      border-radius: 12px;
+      padding: var(--spacing-6);
+      max-width: 360px;
+    }
+ 
+    /* Workout type tag — uses --color-primary */
+    .card-tag {
+      display: inline-block;
+      background-color: var(--color-primary);
+      color: var(--color-text-primary);
+      font-family: var(--font-family-heading);
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 2px 10px;
+      border-radius: 4px;
+      margin-bottom: var(--spacing-4);
+    }
+ 
+    .card-title {
+      font-family: var(--font-family-heading);
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+      margin-bottom: var(--spacing-2);
+    }
+ 
+    /* Description uses --color-text-muted */
+    .card-desc {
+      font-size: var(--font-size-sm);
+      color: var(--color-text-muted);
+      margin-bottom: var(--spacing-6);
+    }
+ 
+    /* Stats row: values on left, button on right */
+    .card-footer {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-6);
+    }
+ 
+    .card-stat-value {
+      font-family: var(--font-family-heading);
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-bold);
+    }
+ 
+    .card-stat-label {
+      font-size: var(--font-size-sm);
+      color: var(--color-text-muted);
+    }
+ 
+    .card-footer .btn-pill { margin-left: auto; }
+ 
+    /* Pill button inside card — uses --color-primary */
+    .btn-pill {
+      background-color: var(--color-primary);
+      color: var(--color-text-primary);
+      font-family: var(--font-family-heading);
+      font-size: var(--font-size-base);
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+      padding: var(--button-padding-sm) var(--spacing-6);
+      border: none;
+      border-radius: 9999px;
+      cursor: pointer;
+    }
+    .btn-pill:hover { background-color: #e0183e; }
+ 
+ 
+    /* =============================================
+       NAVIGATION BAR
+    ============================================= */
+    .nav-bar {
+      background-color: var(--color-card-bg);
+      border: 1px solid var(--color-card-border);
+      border-radius: 12px;
+      padding: var(--spacing-4) var(--spacing-6);
+      display: flex;
+      gap: var(--spacing-4);
+      width: fit-content;
+      margin-bottom: var(--spacing-4);
+    }
+ 
+    /* Each icon slot */
+    .nav-btn {
+      width: 56px;
+      height: 56px;
+      background: transparent;
+      border: 1px solid var(--color-card-border);
+      border-radius: 8px;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 200ms ease, color 200ms ease;
+    }
+    .nav-btn:hover  { background-color: var(--color-card-border); color: var(--color-text-primary); }
+    /* Active: --color-primary border and icon color */
+    .nav-btn.active { border-color: var(--color-primary); color: var(--color-primary); }
+ 
+    .nav-btn svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+ 
+ 
+    /* =============================================
+       BACK BUTTON
+    ============================================= */
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-2);
+      background-color: var(--color-card-bg);
+      border: 1px solid var(--color-card-border);
+      border-radius: 9999px;
+      padding: var(--button-padding-sm) var(--spacing-6);
+      font-family: var(--font-family-heading);
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-text-primary);
+      cursor: pointer;
+      transition: background-color 200ms ease;
+    }
+    .btn-back:hover { background-color: var(--color-card-border); }
+ 
+    .btn-back svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+ 
+  </style>
+</head>
+<body>
+ 
+  <h1>Core Components</h1>
+ 
+ 
+  <!-- =============================================
+       SECTION 1: BUTTONS
+  ============================================= -->
+  <div class="section" id="buttons">
+    <h2>Buttons</h2>
+ 
+    <h3>Primary — Default / Hover / Pressed / Disabled</h3>
+    <div class="row">
+      <button class="btn btn-primary">Start</button>
+      <button class="btn btn-primary" style="background-color:#e0183e;">Start (hover)</button>
+      <button class="btn btn-primary pressed">Start (pressed)</button>
+      <button class="btn btn-primary" disabled>Start</button>
+    </div>
+ 
+    <h3>Secondary — Default / Hover / Pressed / Disabled</h3>
+    <div class="row">
+      <button class="btn btn-secondary">Start</button>
+      <button class="btn btn-secondary" style="background-color:#4a3ec8;">Start (hover)</button>
+      <button class="btn btn-secondary pressed">Start (pressed)</button>
+      <button class="btn btn-secondary" disabled>Start</button>
+    </div>
+ 
+    <h3>Accent — Default / Hover / Pressed / Disabled</h3>
+    <div class="row">
+      <button class="btn btn-accent">Start</button>
+      <button class="btn btn-accent" style="background-color:#ede9a0;">Start (hover)</button>
+      <button class="btn btn-accent pressed">Start (pressed)</button>
+      <button class="btn btn-accent" disabled>Start</button>
+    </div>
+ 
+    <h3>Icon Button — Default / Hover / Pressed / Disabled</h3>
+    <div class="row">
+      <button class="btn btn-icon">Add +</button>
+      <button class="btn btn-icon" style="background-color:#e0183e;">Add + (hover)</button>
+      <button class="btn btn-icon pressed">Add + (pressed)</button>
+      <button class="btn btn-icon" disabled>Add +</button>
+    </div>
+  </div>
+ 
+ 
+  <!-- =============================================
+       SECTION 2: CARD
+  ============================================= -->
+  <div class="section" id="cards">
+    <h2>Card</h2>
+ 
+    <div class="card">
+      <!-- Tag uses --color-primary -->
+      <span class="card-tag">Strength</span>
+ 
+      <!-- Title uses --font-family-heading -->
+      <div class="card-title">Barbell Back Squat</div>
+ 
+      <!-- Description uses --color-text-muted -->
+      <div class="card-desc">Targets quads, glutes, and hamstrings</div>
+ 
+      <!-- Footer: stats + pill button -->
+      <div class="card-footer">
+        <div>
+          <div class="card-stat-value">4 Sets</div>
+          <div class="card-stat-label">Volume</div>
+        </div>
+        <div>
+          <div class="card-stat-value">185 lbs</div>
+          <div class="card-stat-label">Last Weight</div>
+        </div>
+        <!-- Pill button uses --color-primary and border-radius 9999px -->
+        <button class="btn-pill">Log</button>
+      </div>
+    </div>
+  </div>
+ 
+ 
+  <!-- =============================================
+       SECTION 3: NAVIGATION BAR
+  ============================================= -->
+  <div class="section" id="navbar">
+    <h2>Navigation Bar</h2>
+ 
+    <h3>Default</h3>
+    <nav class="nav-bar">
+      <button class="nav-btn" aria-label="Workouts">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><line x1="3" y1="12" x2="9" y2="12"/><line x1="15" y1="12" x2="21" y2="12"/></svg>
+      </button>
+      <button class="nav-btn" aria-label="Profile">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      </button>
+      <button class="nav-btn" aria-label="Goals">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg>
+      </button>
+      <button class="nav-btn" aria-label="Schedule">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      </button>
+    </nav>
+ 
+    <!-- .active class gives --color-primary border and icon color -->
+    <h3>Active State (Workouts selected)</h3>
+    <nav class="nav-bar">
+      <button class="nav-btn active" aria-label="Workouts">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><line x1="3" y1="12" x2="9" y2="12"/><line x1="15" y1="12" x2="21" y2="12"/></svg>
+      </button>
+      <button class="nav-btn" aria-label="Profile">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      </button>
+      <button class="nav-btn" aria-label="Goals">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg>
+      </button>
+      <button class="nav-btn" aria-label="Schedule">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      </button>
+    </nav>
+  </div>
+ 
+ 
+  <!-- =============================================
+       SECTION 4: BACK BUTTON
+  ============================================= -->
+  <div class="section" id="back-button">
+    <h2>Back Button</h2>
+ 
+    <div class="row">
+      <!-- Default -->
+      <button class="btn-back">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        Back
+      </button>
+ 
+      <!-- Hover shown with inline style -->
+      <button class="btn-back" style="background-color: var(--color-card-border);">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        Back (hover)
+      </button>
+    </div>
+  </div>
+ 
+ 
+</body>
+</html>
+ 
