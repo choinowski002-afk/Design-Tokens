@@ -1,6 +1,5 @@
-# Design-Tokens
-Design Tokens and CSS Variables
-My design tokens and variables 
+# Design-Tokens & Core components 
+My design tokens, variables and components
 for final project
 DSN326
 Carter Hoinowski
