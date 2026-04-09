@@ -51,9 +51,7 @@
       --line-height-base: 1.5;
     }
  
-    /* =============================================
-       BASE
-    ============================================= */
+    /* BASE */
     body {
       background-color: var(--color-background-primary);
       font-family: var(--font-family-body);
@@ -102,13 +100,11 @@
     }
  
  
-    /* =============================================
-       BUTTONS
+    /* Buttons - 
        4 types: primary, secondary, accent, icon
-       4 states: default, hover, pressed, disabled
-    ============================================= */
+       4 states: default, hover, pressed, disabled */
  
-    /* Base — shared by all button types */
+    /* Base button */
     .btn {
       font-family: var(--font-family-heading);
       font-size: var(--font-size-base);
@@ -122,34 +118,32 @@
       transition: background-color 150ms ease;
     }
  
-    /* Primary — uses --color-primary */
+    /* Primary */
     .btn-primary            { background-color: var(--color-primary); color: var(--color-text-primary); }
     .btn-primary:hover      { background-color: #e0183e; }
     .btn-primary.pressed    { background-color: #c01030; }
     .btn-primary:disabled   { background-color: var(--color-disabled-bg); color: var(--color-disabled-text); cursor: not-allowed; }
  
-    /* Secondary — uses --color-secondary */
+    /* Secondary */
     .btn-secondary          { background-color: var(--color-secondary); color: var(--color-text-primary); }
     .btn-secondary:hover    { background-color: #4a3ec8; }
     .btn-secondary.pressed  { background-color: #3a2fb0; }
     .btn-secondary:disabled { background-color: var(--color-disabled-bg); color: var(--color-disabled-text); cursor: not-allowed; }
  
-    /* Accent — uses --color-accent (yellow) with dark text */
+    /* Accent */
     .btn-accent             { background-color: var(--color-accent); color: var(--color-accent-text); }
     .btn-accent:hover       { background-color: #ede9a0; }
     .btn-accent.pressed     { background-color: #d8d488; }
     .btn-accent:disabled    { background-color: var(--color-disabled-bg); color: var(--color-disabled-text); cursor: not-allowed; }
  
-    /* Icon button — same red as primary, slightly less padding */
+    /* Icon button */
     .btn-icon               { background-color: var(--color-primary); color: var(--color-text-primary); padding: var(--button-padding-md) var(--spacing-6); }
     .btn-icon:hover         { background-color: #e0183e; }
     .btn-icon.pressed       { background-color: #c01030; }
     .btn-icon:disabled      { background-color: var(--color-disabled-bg); color: var(--color-disabled-text); cursor: not-allowed; }
  
  
-    /* =============================================
-       CARD
-    ============================================= */
+    /* CARD */
     .card {
       background-color: var(--color-card-bg);
       border: 1px solid var(--color-card-border);
@@ -158,7 +152,6 @@
       max-width: 360px;
     }
  
-    /* Workout type tag — uses --color-primary */
     .card-tag {
       display: inline-block;
       background-color: var(--color-primary);
@@ -181,14 +174,14 @@
       margin-bottom: var(--spacing-2);
     }
  
-    /* Description uses --color-text-muted */
+    /* Description */
     .card-desc {
       font-size: var(--font-size-sm);
       color: var(--color-text-muted);
       margin-bottom: var(--spacing-6);
     }
  
-    /* Stats row: values on left, button on right */
+    /* Stats row */
     .card-footer {
       display: flex;
       align-items: center;
@@ -208,7 +201,7 @@
  
     .card-footer .btn-pill { margin-left: auto; }
  
-    /* Pill button inside card — uses --color-primary */
+    /* Pill button inside card */
     .btn-pill {
       background-color: var(--color-primary);
       color: var(--color-text-primary);
@@ -224,9 +217,7 @@
     .btn-pill:hover { background-color: #e0183e; }
  
  
-    /* =============================================
-       NAVIGATION BAR
-    ============================================= */
+    /* NAVIGATION BAR */
     .nav-bar {
       background-color: var(--color-card-bg);
       border: 1px solid var(--color-card-border);
@@ -253,23 +244,8 @@
       transition: background-color 200ms ease, color 200ms ease;
     }
     .nav-btn:hover  { background-color: var(--color-card-border); color: var(--color-text-primary); }
-    /* Active: --color-primary border and icon color */
-    .nav-btn.active { border-color: var(--color-primary); color: var(--color-primary); }
- 
-    .nav-btn svg {
-      width: 24px;
-      height: 24px;
-      stroke: currentColor;
-      fill: none;
-      stroke-width: 1.8;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
- 
- 
-    /* =============================================
-       BACK BUTTON
-    ============================================= */
+    
+    /* BACK BUTTON */
     .btn-back {
       display: inline-flex;
       align-items: center;
@@ -304,9 +280,7 @@
   <h1>Core Components</h1>
  
  
-  <!-- =============================================
-       SECTION 1: BUTTONS
-  ============================================= -->
+  <!-- BUTTONS -->
   <div class="section" id="buttons">
     <h2>Buttons</h2>
  
@@ -343,10 +317,7 @@
     </div>
   </div>
  
- 
-  <!-- =============================================
-       SECTION 2: CARD
-  ============================================= -->
+  <!-- Card -->
   <div class="section" id="cards">
     <h2>Card</h2>
  
@@ -377,9 +348,7 @@
   </div>
  
  
-  <!-- =============================================
-       SECTION 3: NAVIGATION BAR
-  ============================================= -->
+<!-- Nav bar -->
   <div class="section" id="navbar">
     <h2>Navigation Bar</h2>
  
@@ -398,29 +367,9 @@
         <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
       </button>
     </nav>
+
  
-    <!-- .active class gives --color-primary border and icon color -->
-    <h3>Active State (Workouts selected)</h3>
-    <nav class="nav-bar">
-      <button class="nav-btn active" aria-label="Workouts">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><line x1="3" y1="12" x2="9" y2="12"/><line x1="15" y1="12" x2="21" y2="12"/></svg>
-      </button>
-      <button class="nav-btn" aria-label="Profile">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-      </button>
-      <button class="nav-btn" aria-label="Goals">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg>
-      </button>
-      <button class="nav-btn" aria-label="Schedule">
-        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-      </button>
-    </nav>
-  </div>
- 
- 
-  <!-- =============================================
-       SECTION 4: BACK BUTTON
-  ============================================= -->
+ <!-- Back button -->
   <div class="section" id="back-button">
     <h2>Back Button</h2>
  
@@ -431,11 +380,6 @@
         Back
       </button>
  
-      <!-- Hover shown with inline style -->
-      <button class="btn-back" style="background-color: var(--color-card-border);">
-        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-        Back (hover)
-      </button>
     </div>
   </div>
  
