@@ -7,9 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="tokens.css">
-
+ 
   <style>
-    
+ 
     :root {
       /* Colors */
       --color-primary:              #FF2D55;
@@ -99,12 +99,7 @@
       margin-bottom: var(--spacing-4);
     }
  
- 
-    /* Buttons - 
-       4 types: primary, secondary, accent, icon
-       4 states: default, hover, pressed, disabled */
- 
-    /* Base button */
+    /* BUTTONS */
     .btn {
       font-family: var(--font-family-heading);
       font-size: var(--font-size-base);
@@ -118,30 +113,25 @@
       transition: background-color 150ms ease;
     }
  
-    /* Primary */
     .btn-primary            { background-color: var(--color-primary); color: var(--color-text-primary); }
     .btn-primary:hover      { background-color: #e0183e; }
     .btn-primary.pressed    { background-color: #c01030; }
     .btn-primary:disabled   { background-color: var(--color-disabled-bg); color: var(--color-disabled-text); cursor: not-allowed; }
  
-    /* Secondary */
     .btn-secondary          { background-color: var(--color-secondary); color: var(--color-text-primary); }
     .btn-secondary:hover    { background-color: #4a3ec8; }
     .btn-secondary.pressed  { background-color: #3a2fb0; }
     .btn-secondary:disabled { background-color: var(--color-disabled-bg); color: var(--color-disabled-text); cursor: not-allowed; }
  
-    /* Accent */
     .btn-accent             { background-color: var(--color-accent); color: var(--color-accent-text); }
     .btn-accent:hover       { background-color: #ede9a0; }
     .btn-accent.pressed     { background-color: #d8d488; }
     .btn-accent:disabled    { background-color: var(--color-disabled-bg); color: var(--color-disabled-text); cursor: not-allowed; }
  
-    /* Icon button */
     .btn-icon               { background-color: var(--color-primary); color: var(--color-text-primary); padding: var(--button-padding-md) var(--spacing-6); }
     .btn-icon:hover         { background-color: #e0183e; }
     .btn-icon.pressed       { background-color: #c01030; }
     .btn-icon:disabled      { background-color: var(--color-disabled-bg); color: var(--color-disabled-text); cursor: not-allowed; }
- 
  
     /* CARD */
     .card {
@@ -174,14 +164,12 @@
       margin-bottom: var(--spacing-2);
     }
  
-    /* Description */
     .card-desc {
       font-size: var(--font-size-sm);
       color: var(--color-text-muted);
       margin-bottom: var(--spacing-6);
     }
  
-    /* Stats row */
     .card-footer {
       display: flex;
       align-items: center;
@@ -201,7 +189,6 @@
  
     .card-footer .btn-pill { margin-left: auto; }
  
-    /* Pill button inside card */
     .btn-pill {
       background-color: var(--color-primary);
       color: var(--color-text-primary);
@@ -216,7 +203,6 @@
     }
     .btn-pill:hover { background-color: #e0183e; }
  
- 
     /* NAVIGATION BAR */
     .nav-bar {
       background-color: var(--color-card-bg);
@@ -229,7 +215,6 @@
       margin-bottom: var(--spacing-4);
     }
  
-    /* Each icon slot */
     .nav-btn {
       width: 56px;
       height: 56px;
@@ -244,7 +229,18 @@
       transition: background-color 200ms ease, color 200ms ease;
     }
     .nav-btn:hover  { background-color: var(--color-card-border); color: var(--color-text-primary); }
-    
+    .nav-btn.active { border-color: var(--color-primary); color: var(--color-primary); }
+ 
+    .nav-btn svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+ 
     /* BACK BUTTON */
     .btn-back {
       display: inline-flex;
@@ -278,7 +274,6 @@
 <body>
  
   <h1>Core Components</h1>
- 
  
   <!-- BUTTONS -->
   <div class="section" id="buttons">
@@ -317,21 +312,14 @@
     </div>
   </div>
  
-  <!-- Card -->
+  <!-- CARD -->
   <div class="section" id="cards">
     <h2>Card</h2>
  
     <div class="card">
-      <!-- Tag uses --color-primary -->
       <span class="card-tag">Strength</span>
- 
-      <!-- Title uses --font-family-heading -->
       <div class="card-title">Barbell Back Squat</div>
- 
-      <!-- Description uses --color-text-muted -->
       <div class="card-desc">Targets quads, glutes, and hamstrings</div>
- 
-      <!-- Footer: stats + pill button -->
       <div class="card-footer">
         <div>
           <div class="card-stat-value">4 Sets</div>
@@ -341,14 +329,12 @@
           <div class="card-stat-value">185 lbs</div>
           <div class="card-stat-label">Last Weight</div>
         </div>
-        <!-- Pill button uses --color-primary and border-radius 9999px -->
         <button class="btn-pill">Log</button>
       </div>
     </div>
   </div>
  
- 
-<!-- Nav bar -->
+  <!-- NAVIGATION BAR -->
   <div class="section" id="navbar">
     <h2>Navigation Bar</h2>
  
@@ -367,23 +353,21 @@
         <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
       </button>
     </nav>
-
  
- <!-- Back button -->
+ 
+  </div>
+ 
+  <!-- BACK BUTTON -->
   <div class="section" id="back-button">
     <h2>Back Button</h2>
  
     <div class="row">
-      <!-- Default -->
       <button class="btn-back">
         <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
         Back
       </button>
- 
     </div>
   </div>
  
- 
 </body>
 </html>
- 
