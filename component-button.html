@@ -1,1 +1,291 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buttons — Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="tokens.css">
+ 
+  <style>
+ 
+    /* TOKENS */
+    :root {
+      --color-primary:              #FF2D55;
+      --color-background-primary:   #1F1F2A;
+      --color-background-secondary: #191923;
+      --color-text-primary:         #FFFFFF;
+      --color-secondary:            #5B4FD9;
+      --color-accent:               #F6F4AF;
+      --color-accent-text:          #1F1F2A;
+      --color-card-bg:              #2A2A38;
+      --color-card-border:          #3A3A4D;
+      --color-text-muted:           #9999AA;
+      --color-disabled-bg:          #3A3A4A;
+      --color-disabled-text:        #666677;
+ 
+      --spacing-2:  8px;
+      --spacing-4:  16px;
+      --spacing-6:  24px;
+      --spacing-8:  32px;
+      --spacing-12: 48px;
+ 
+      --button-padding-sm: var(--spacing-2);
+      --button-padding-md: var(--spacing-4);
+ 
+      --font-family-heading: 'Barlow Condensed', sans-serif;
+      --font-family-body:    'Open Sans', sans-serif;
+      --font-size-sm:   12px;
+      --font-size-base: 16px;
+      --font-size-lg:   20px;
+      --font-size-xl:   24px;
+      --font-size-2xl:  32px;
+      --font-weight-reg:  400;
+      --font-weight-bold: 700;
+      --line-height-base: 1.5;
+    }
+ 
+    /* BASE */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+    body {
+      background-color: var(--color-background-primary);
+      font-family: var(--font-family-body);
+      font-size: var(--font-size-base);
+      color: var(--color-text-primary);
+      line-height: var(--line-height-base);
+    }
+ 
+    a { text-decoration: none; color: inherit; }
+ 
+    /* PAGE LAYOUT — sidebar + main using CSS Grid */
+    .page {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      min-height: 100vh;
+    }
+ 
+    /* SIDEBAR NAV
+       Follows IA: Foundations, Components, Patterns
+       Reuse on every component page */
+    .sidebar {
+      background-color: var(--color-background-secondary);
+      border-right: 1px solid var(--color-card-border);
+      padding: var(--spacing-8) var(--spacing-4);
+      position: sticky;
+      top: 0;
+      height: 100vh;
+    }
+ 
+    .sidebar__title {
+      font-family: var(--font-family-heading);
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+      color: var(--color-primary);
+      margin-bottom: var(--spacing-8);
+      padding-bottom: var(--spacing-4);
+      border-bottom: 1px solid var(--color-card-border);
+    }
+ 
+    .nav-section {
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-muted);
+      margin-top: var(--spacing-6);
+      margin-bottom: var(--spacing-2);
+    }
+ 
+    .nav-link {
+      display: block;
+      padding: 6px var(--spacing-2);
+      font-size: var(--font-size-sm);
+      color: var(--color-text-muted);
+      border-radius: 4px;
+      transition: background-color 150ms ease, color 150ms ease;
+    }
+ 
+    .nav-link:hover { background-color: var(--color-card-bg); color: var(--color-text-primary); }
+    .nav-link.active { color: var(--color-primary); font-weight: var(--font-weight-bold); }
+ 
+    /* MAIN CONTENT */
+    .main {
+      padding: var(--spacing-8) var(--spacing-12);
+      max-width: 860px;
+    }
+ 
+    /* PAGE HEADER */
+    .page-header {
+      margin-bottom: var(--spacing-8);
+      padding-bottom: var(--spacing-6);
+      border-bottom: 2px solid var(--color-card-border);
+    }
+ 
+    .breadcrumb {
+      font-size: var(--font-size-sm);
+      color: var(--color-text-muted);
+      margin-bottom: var(--spacing-4);
+    }
+ 
+    .breadcrumb span { color: var(--color-primary); }
+ 
+    h1 {
+      font-family: var(--font-family-heading);
+      font-size: var(--font-size-2xl);
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+      margin-bottom: var(--spacing-2);
+    }
+ 
+    /* CONTENT SECTIONS
+       Reuse .content-section for every section on any page */
+    .content-section {
+      margin-bottom: var(--spacing-12);
+    }
+ 
+    .content-section h2 {
+      font-family: var(--font-family-heading);
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--color-card-border);
+      padding-bottom: var(--spacing-2);
+      margin-bottom: var(--spacing-6);
+    }
+ 
+    .content-section p {
+      font-size: var(--font-size-base);
+      color: var(--color-text-muted);
+      margin-bottom: var(--spacing-4);
+    }
+ 
+    /* Example box */
+    .example-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-4);
+      align-items: center;
+      background-color: var(--color-card-bg);
+      border: 1px solid var(--color-card-border);
+      border-radius: 8px;
+      padding: var(--spacing-6);
+    }
+ 
+    /* Code block */
+    .code-block {
+      background-color: var(--color-background-secondary);
+      border: 1px solid var(--color-card-border);
+      border-radius: 8px;
+      padding: var(--spacing-6);
+      font-family: monospace;
+      font-size: var(--font-size-sm);
+      color: var(--color-accent);
+      white-space: pre;
+      overflow-x: auto;
+      margin-bottom: var(--spacing-6);
+    }
+ 
+    /* BUTTONS */
+    .btn {
+      font-family: var(--font-family-heading);
+      font-size: var(--font-size-base);
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: var(--button-padding-md) var(--spacing-8);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 150ms ease;
+    }
+ 
+    .btn-primary   { background-color: var(--color-primary);   color: var(--color-text-primary); }
+    .btn-secondary { background-color: var(--color-secondary); color: var(--color-text-primary); }
+    .btn-accent    { background-color: var(--color-accent);    color: var(--color-accent-text);  }
+    .btn-icon      { background-color: var(--color-primary);   color: var(--color-text-primary); padding: var(--button-padding-md) var(--spacing-6); }
+ 
+    /* RESPONSIVE — stack on small screens */
+    @media (max-width: 700px) {
+      .page { grid-template-columns: 1fr; }
+      .sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--color-card-border); }
+      .main { padding: var(--spacing-6) var(--spacing-4); }
+    }
+ 
+  </style>
+</head>
+<body>
+ 
+<div class="page">
+ 
+  <!-- SIDEBAR NAV — reuse on every component page -->
+  <aside class="sidebar">
+    <div class="sidebar__title">Design System</div>
+ 
+    <div class="nav-section">Foundations</div>
+    <a href="#" class="nav-link">Colors</a>
+    <a href="#" class="nav-link">Typography</a>
+    <a href="#" class="nav-link">Icons</a>
+ 
+    <div class="nav-section">Components</div>
+    <a href="index.html" class="nav-link">Overview</a>
+    <a href="component-button.html" class="nav-link active">Buttons</a>
+    <a href="#" class="nav-link">Cards</a>
+    <a href="#" class="nav-link">Navigation Bar</a>
+    <a href="#" class="nav-link">Back Button</a>
+ 
+    <div class="nav-section">Patterns</div>
+    <a href="#" class="nav-link">Workout Card</a>
+    <a href="#" class="nav-link">Progress Tracking</a>
+  </aside>
+ 
+  <!-- MAIN CONTENT — swap header/overview/examples for each new page -->
+  <main class="main">
+ 
+    <!-- HEADER -->
+    <div class="page-header">
+      <div class="breadcrumb">Components &rsaquo; <span>Buttons</span></div>
+      <h1>Buttons</h1>
+    </div>
+ 
+    <!-- OVERVIEW -->
+    <div class="content-section" id="overview">
+      <h2>Overview</h2>
+      <p>Buttons are used to trigger actions throughout the app. There are four types: Primary, Secondary, Accent, and Icon. All styles use CSS variables from tokens.css for consistency.</p>
+    </div>
+ 
+    <!-- EXAMPLES -->
+    <div class="content-section" id="examples">
+      <h2>Examples</h2>
+      <div class="example-box">
+        <button class="btn btn-primary">Start</button>
+        <button class="btn btn-secondary">Start</button>
+        <button class="btn btn-accent">Start</button>
+        <button class="btn btn-icon">Add +</button>
+      </div>
+    </div>
+ 
+    <!-- CODE SNIPPETS -->
+    <div class="content-section" id="code">
+      <h2>Code Snippets</h2>
+      <div class="code-block">&lt;!-- Primary --&gt;
+&lt;button class="btn btn-primary"&gt;Start&lt;/button&gt;
+ 
+&lt;!-- Secondary --&gt;
+&lt;button class="btn btn-secondary"&gt;Start&lt;/button&gt;
+ 
+&lt;!-- Accent --&gt;
+&lt;button class="btn btn-accent"&gt;Start&lt;/button&gt;
+ 
+&lt;!-- Icon --&gt;
+&lt;button class="btn btn-icon"&gt;Add +&lt;/button&gt;</div>
+    </div>
+ 
+  </main>
+</div>
+ 
+</body>
+</html>
+ 
