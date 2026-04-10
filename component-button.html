@@ -1,1 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buttons – Design System</title>
 
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Tokens -->
+  <link rel="stylesheet" href="tokens.css">
+
+  <!-- NEW GLOBAL STYLES -->
+  <style>
+
+    /* =========================
+       GLOBAL LAYOUT (REUSABLE)
+       ========================= */
+    body {
+      margin: 0;
+      font-family: var(--font-family-body);
+      background: var(--color-background-primary);
+      color: var(--color-text-primary);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      min-height: 100vh;
+    }
+
+    /* =========================
+       SIDEBAR NAV
+       ========================= */
+    .sidebar {
+      background: var(--color-background-secondary);
+      padding: var(--spacing-6);
+      border-right: 1px solid var(--color-card-border);
+    }
+
+    .sidebar h2 {
+      font-family: var(--font-family-heading);
+      font-size: var(--font-size-lg);
+      margin-bottom: var(--spacing-6);
+    }
+
+    .sidebar a {
+      display: block;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      margin-bottom: var(--spacing-4);
+      transition: 0.2s;
+    }
+
+    .sidebar a:hover {
+      color: var(--color-text-primary);
+    }
+
+    .sidebar a.active {
+      color: var(--color-primary);
+    }
+
+    /* =========================
+       MAIN CONTENT
+       ========================= */
+    .content {
+      padding: var(--spacing-8);
+    }
+
+    .page-header h1 {
+      font-family: var(--font-family-heading);
+      font-size: var(--font-size-2xl);
+      color: var(--color-primary);
+      margin-bottom: var(--spacing-6);
+    }
+
+    .section {
+      margin-bottom: var(--spacing-8);
+    }
+
+    .row {
+      display: flex;
+      gap: var(--spacing-4);
+      flex-wrap: wrap;
+    }
+
+    /* =========================
+       BUTTONS (REUSED)
+       ========================= */
+    .btn {
+      font-family: var(--font-family-heading);
+      font-weight: var(--font-weight-bold);
+      padding: var(--button-padding-md) var(--spacing-6);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--color-primary);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: var(--color-secondary);
+      color: white;
+    }
+
+    .btn-accent {
+      background: var(--color-accent);
+      color: var(--color-accent-text);
+    }
+
+    /* =========================
+       CODE BLOCK
+       ========================= */
+    pre {
+      background: #111;
+      padding: var(--spacing-4);
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: var(--font-size-sm);
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h2>Design System</h2>
+    <a href="index.html">Overview</a>
+    <a href="#" class="active">Buttons</a>
+    <a href="#">Cards</a>
+    <a href="#">Navigation</a>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+
+    <!-- HEADER -->
+    <div class="page-header">
+      <h1>Buttons</h1>
+      <p>Buttons allow users to take actions throughout the interface.</p>
+    </div>
+
+    <!-- OVERVIEW -->
+    <section class="section">
+      <h2>Overview</h2>
+      <p>
+        Buttons communicate actions clearly and should be used consistently across the system.
+      </p>
+    </section>
+
+    <!-- EXAMPLES -->
+    <section class="section">
+      <h2>Examples</h2>
+
+      <h3>Primary</h3>
+      <div class="row">
+        <button class="btn btn-primary">Start</button>
+      </div>
+
+      <h3>Secondary</h3>
+      <div class="row">
+        <button class="btn btn-secondary">Start</button>
+      </div>
+
+      <h3>Accent</h3>
+      <div class="row">
+        <button class="btn btn-accent">Start</button>
+      </div>
+
+    </section>
+
+    <!-- CODE SNIPPET -->
+    <section class="section">
+      <h2>Code</h2>
+
+      <pre>
+&lt;button class="btn btn-primary"&gt;Start&lt;/button&gt;
+      </pre>
+
+    </section>
+
+  </main>
+
+</div>
+
+</body>
+</html>
