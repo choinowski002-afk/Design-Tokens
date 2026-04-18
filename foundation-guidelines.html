@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Typography — Design System</title>
+  <title>Navigation Bar — Design System</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="tokens.css">
@@ -153,6 +153,15 @@
       margin-bottom: var(--spacing-4);
     }
  
+    .content-section h4 {
+      font-family: var(--font-family-heading);
+      font-size: var(--font-size-base);
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+      margin-top: var(--spacing-4);
+      margin-bottom: var(--spacing-2);
+    }
+ 
     .content-section p {
       font-size: var(--font-size-base);
       color: var(--color-text-muted);
@@ -169,36 +178,28 @@
       margin-bottom: var(--spacing-2);
     }
  
-    .best-practices {
+    .variants-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: var(--spacing-6);
       margin-top: var(--spacing-6);
     }
  
-    .practice-box {
+    .variant-card {
       background-color: var(--color-card-bg);
       border: 1px solid var(--color-card-border);
       border-radius: 8px;
       padding: var(--spacing-6);
     }
  
-    .practice-box h4 {
-      font-family: var(--font-family-heading);
-      font-size: var(--font-size-base);
-      font-weight: var(--font-weight-bold);
-      text-transform: uppercase;
+    .variant-card h4 {
+      margin-top: 0;
       margin-bottom: var(--spacing-4);
-      color: var(--color-text-primary);
     }
  
-    .practice-box ul {
-      list-style-position: inside;
+    .variant-card p {
       font-size: var(--font-size-sm);
-    }
- 
-    .practice-box li {
-      margin-bottom: var(--spacing-2);
+      margin-bottom: 0;
     }
  
     .example-box {
@@ -228,7 +229,7 @@
       .page { grid-template-columns: 1fr; }
       .sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--color-card-border); }
       .main { padding: var(--spacing-6) var(--spacing-4); }
-      .best-practices { grid-template-columns: 1fr; }
+      .variants-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -241,13 +242,13 @@
     <a href="index.html" style="text-decoration: none;"><div class="sidebar__title">Design System</div></a>
  
     <div class="nav-section">Foundations</div>
-    <a href="foundation-guidelines.html" class="nav-link active">Typography</a>
+    <a href="foundation-guidelines.html" class="nav-link">Typography</a>
     <a href="#" class="nav-link">Colors</a>
     <a href="#" class="nav-link">Icons</a>
  
     <div class="nav-section">Components</div>
     <a href="component-button.html" class="nav-link">Core Components</a>
-    <a href="component-guidelines.html" class="nav-link">Navigation Bar</a>
+    <a href="component-guidelines.html" class="nav-link active">Navigation Bar</a>
  
     <div class="nav-section">Patterns</div>
     <a href="#" class="nav-link">Workout Card</a>
@@ -258,57 +259,64 @@
   <main class="main">
  
     <div class="page-header">
-      <div class="breadcrumb">Foundations &rsaquo; <span>Typography</span></div>
-      <h1>Typography</h1>
+      <div class="breadcrumb">Components &rsaquo; <span>Navigation Bar</span></div>
+      <h1>Navigation Bar</h1>
     </div>
  
     <div class="content-section" id="overview">
       <h2>Overview</h2>
-      <p>Typography is a critical foundation in design. A well-chosen typeface makes your brand instantly recognizable and sets the entire tone and mood of your design.</p>
+      <p>The navigation bar is an essential component in application design. It provides users with quick and direct access to multiple pages, saving time and improving user experience.</p>
  
-      <h3>Why Typography Matters</h3>
+      <h3>Why it Matters</h3>
       <ul>
-        <li><strong>Brand Recognition:</strong> A specific font makes your brand memorable and distinguishable. Generic typography goes unnoticed.</li>
-        <li><strong>Setting the Mood:</strong> Typography establishes the "vibe" of your design. A nature-based shop might use organic, flowing fonts, while a tech startup uses robotic, professional typefaces.</li>
-        <li><strong>Visual Hierarchy & Diversity:</strong> Using multiple fonts breaks up monotony and helps users understand content structure. Without variation, designs feel flat and mushed together.</li>
+        <li><strong>Quick Access:</strong> Users can navigate to frequently used pages without multiple clicks.</li>
+        <li><strong>Better UX:</strong> Eliminates the need to go through menus to reach desired destinations.</li>
+        <li><strong>User Efficiency:</strong> Enables users to make quick decisions and move through the application seamlessly.</li>
+        <li><strong>Discoverability:</strong> Makes available pages and features immediately visible.</li>
       </ul>
     </div>
  
-    <div class="content-section" id="best-practices">
-      <h2>Best Practices</h2>
-      
-      <div class="best-practices">
-        <div class="practice-box">
-          <h4>✓ Do's</h4>
-          <ul>
-            <li>Use fonts to set the "vibe"</li>
-            <li>Break up text with different fonts</li>
-            <li>Make typography memorable and unique</li>
-            <li>Keep fonts legible and scalable</li>
-            <li>Use typography to establish hierarchy</li>
-          </ul>
+    <div class="content-section" id="states">
+      <h2>States and Variants</h2>
+ 
+      <h3>States</h3>
+      <p>The navigation bar currently supports the following state:</p>
+      <ul>
+        <li><strong>Pressed/Active State:</strong> When a navigation button is selected, it displays a lighter or highlighted state to indicate the current page.</li>
+      </ul>
+ 
+      <h3>Variants</h3>
+      <p>The navigation bar can be implemented in multiple layouts:</p>
+ 
+      <div class="variants-grid">
+        <div class="variant-card">
+          <h4>Horizontal Layout</h4>
+          <p>Navigation items arranged side-by-side. Best for desktop and wider viewports. Most common implementation.</p>
         </div>
  
-        <div class="practice-box">
-          <h4>✗ Don'ts</h4>
-          <ul>
-            <li>Use unreadable or illegible fonts</li>
-            <li>Use the same font for entire designs</li>
-            <li>Use uniform font sizes everywhere</li>
-            <li>Use too many fonts (aim for 2-3)</li>
-            <li>Ignore accessibility in font choices</li>
-          </ul>
+        <div class="variant-card">
+          <h4>Vertical Layout</h4>
+          <p>Navigation items stacked vertically. Useful for sidebars or mobile implementations with limited width.</p>
+        </div>
+ 
+        <div class="variant-card">
+          <h4>Hover/Interactive</h4>
+          <p>Navigation bar that reveals additional options on hover. Can include dropdown menus or pop-up navigation.</p>
+        </div>
+ 
+        <div class="variant-card">
+          <h4>Responsive Variants</h4>
+          <p>Mobile-friendly variants such as hamburger menus that collapse the navigation into a toggle button.</p>
         </div>
       </div>
+ 
+      <p style="margin-top: var(--spacing-6);"><strong>Note:</strong> For this project, the design uses a simple horizontal layout to keep the implementation clean and straightforward.</p>
     </div>
  
     <div class="content-section" id="examples">
-      <h2>Examples</h2>
+      <h2>Usage Examples</h2>
       <div class="example-box">
-        <img src="typoex.png" alt="Typography examples" style="max-width: 100%; height: auto; border-radius: 8px;">
-      </div>
-      <div class="example-box">
-        <img src="typoex2.png" alt="Typography examples continued" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <img src="navex.png" alt="Navigation bar examples" style="max-width: 100%; height: auto; border-radius: 8px;">
       </div>
     </div>
  
